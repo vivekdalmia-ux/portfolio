@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vivek Dalmia — Software Engineer. Portfolio engineered with precision and minimal aesthetics.">
+  <meta name="author" content="Vivek Dalmia">
+  <title>Vivek Dalmia — Software Engineer</title>
+  
+  <!-- Geist Sans and Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <!-- Vercel-inspired geometric triangle mark -->
+        <a href="#home" class="brand-link" aria-label="Vivek Dalmia Home">
+          <svg class="brand-logo" width="18" height="18" viewBox="0 0 115 100" fill="currentColor">
+            <path d="M57.5 0L115 100H0L57.5 0Z"/>
+          </svg>
+          <span class="brand-slash">/</span>
+          <span class="brand-name">vivek-dalmia</span>
+        </a>
+      </div>
+
+      <!-- Pure CSS Nav Toggle for Mobile -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-item">Overview</a></li>
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#skills" class="nav-item">Capabilities</a></li>
+          <li><a href="#projects" class="nav-item">Deployments</a></li>
+          <li><a href="#activity" class="nav-item">Activity</a></li>
+          <li><a href="#contact" class="nav-item">Contact</a></li>
+        </ul>
+        <div class="nav-action">
+          <a href="#contact" class="btn btn-sm btn-primary">Connect</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-container">
+
+      <!-- Hero Section -->
+      <section id="home" class="hero-section">
+        <div class="hero-header">
+          <!-- Status Pill with 10px status dot -->
+          <div class="status-pill">
+            <span class="status-dot status-green" aria-hidden="true"></span>
+            <span class="status-text">Production Ready · Available for Opportunities</span>
+          </div>
+
+          <h1 class="hero-headline">Vivek Dalmia</h1>
+          <p class="hero-subhead">
+            Software Engineer specializing in full-stack architecture, high-throughput backend systems, and clean developer tooling. Engineered for performance and maintainability.
+          </p>
+
+          <div class="hero-controls">
+            <a href="#projects" class="btn btn-primary">View Deployments</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            <a href="mailto:vivek.dalmia@example.com" class="btn btn-ghost">Download Resume</a>
+          </div>
+        </div>
+
+        <!-- System Status / Deployment Card -->
+        <div class="deploy-card">
+          <div class="deploy-card-header">
+            <div class="deploy-title-group">
+              <span class="status-dot status-green" title="Operational"></span>
+              <span class="deploy-title">portfolio-production</span>
+            </div>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="deploy-external-link" aria-label="View on GitHub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <div class="deploy-meta-grid">
+            <div class="meta-item">
+              <span class="meta-label">Environment</span>
+              <span class="meta-val meta-mono">Production</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Branch</span>
+              <span class="meta-val meta-mono">main (c7b91e2)</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Stack</span>
+              <span class="meta-val meta-mono">TypeScript / Next.js / Node</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Status</span>
+              <span class="meta-val meta-mono">Ready (0.42s build)</span>
+            </div>
+          </div>
+
+          <div class="deploy-domains">
+            <span class="meta-label">Domain</span>
+            <div class="domain-row">
+              <a href="https://vivekdalmia.dev" class="domain-link meta-mono">vivekdalmia.dev</a>
+              <span class="domain-tag">Primary</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="content-section">
+        <div class="section-title-wrap">
+          <h2 class="section-eyebrow">Overview</h2>
+          <h3 class="section-heading">Engineering Philosophy</h3>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-copy">
+            <p class="body-text">
+              I build web software with an emphasis on low latency, rigorous type safety, and minimalistic interface design. My approach is grounded in removing the superfluous: software should be fast, intuitive, and predictable.
+            </p>
+            <p class="body-text">
+              From writing robust serverless functions and relational database queries to crafting component systems with microsecond interaction budgets, I prioritize code that is straightforward to test, audit, and scale.
+            </p>
+          </div>
+
+          <div class="spec-cards-grid">
+            <div class="spec-card">
+              <div class="spec-header">
+                <span class="status-dot status-blue" aria-hidden="true"></span>
+                <span class="spec-title">Full-Stack Architecture</span>
+              </div>
+              <p class="spec-body">End-to-end type safety across client interfaces, backend microservices, and databases.</p>
+            </div>
+
+            <div class="spec-card">
+              <div class="spec-header">
+                <span class="status-dot status-teal" aria-hidden="true"></span>
+                <span class="spec-title">Performance Budgeting</span>
+              </div>
+              <p class="spec-body">Obsessive focus on Core Web Vitals, tree shaking, asset caching, and sub-100ms API response times.</p>
+            </div>
+
+            <div class="spec-card">
+              <div class="spec-header">
+                <span class="status-dot status-purple" aria-hidden="true"></span>
+                <span class="spec-title">Developer Tooling</span>
+              </div>
+              <p class="spec-body">Clean Git hygiene, CI/CD automated test verification, and modular design token systems.</p>
+            </div>
+
+            <div class="spec-card">
+              <div class="spec-header">
+                <span class="status-dot status-green" aria-hidden="true"></span>
+                <span class="spec-title">Reliability &amp; Scale</span>
+              </div>
+              <p class="spec-body">Stateless application architecture designed for horizontal scalability and graceful failure.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills / Capabilities Section -->
+      <section id="skills" class="content-section">
+        <div class="section-title-wrap">
+          <h2 class="section-eyebrow">Specifications</h2>
+          <h3 class="section-heading">Technical Capabilities</h3>
+        </div>
+
+        <div class="skills-table-card">
+          <!-- Row 1: Frontend -->
+          <div class="skill-row">
+            <div class="skill-row-info">
+              <span class="status-dot status-blue" aria-hidden="true"></span>
+              <div>
+                <div class="skill-category">Frontend &amp; Interface</div>
+                <div class="skill-desc">Component engineering, web performance &amp; accessibility</div>
+              </div>
+            </div>
+            <div class="skill-tokens">
+              <code class="code-token">TypeScript</code>
+              <code class="code-token">React</code>
+              <code class="code-token">Next.js</code>
+              <code class="code-token">HTML5</code>
+              <code class="code-token">CSS3</code>
+              <code class="code-token">Tailwind</code>
+              <code class="code-token">Web Vitals</code>
+            </div>
+          </div>
+
+          <!-- Row 2: Backend -->
+          <div class="skill-row">
+            <div class="skill-row-info">
+              <span class="status-dot status-green" aria-hidden="true"></span>
+              <div>
+                <div class="skill-category">Backend &amp; Runtimes</div>
+                <div class="skill-desc">REST APIs, event pipelines &amp; serverless functions</div>
+              </div>
+            </div>
+            <div class="skill-tokens">
+              <code class="code-token">Node.js</code>
+              <code class="code-token">Express</code>
+              <code class="code-token">Python</code>
+              <code class="code-token">REST</code>
+              <code class="code-token">GraphQL</code>
+              <code class="code-token">WebSockets</code>
+              <code class="code-token">Microservices</code>
+            </div>
+          </div>
+
+          <!-- Row 3: Data & Cloud -->
+          <div class="skill-row">
+            <div class="skill-row-info">
+              <span class="status-dot status-teal" aria-hidden="true"></span>
+              <div>
+                <div class="skill-category">Databases &amp; Infrastructure</div>
+                <div class="skill-desc">Relational stores, caching tiers &amp; containerization</div>
+              </div>
+            </div>
+            <div class="skill-tokens">
+              <code class="code-token">PostgreSQL</code>
+              <code class="code-token">Redis</code>
+              <code class="code-token">MongoDB</code>
+              <code class="code-token">Prisma</code>
+              <code class="code-token">Docker</code>
+              <code class="code-token">AWS</code>
+              <code class="code-token">Vercel</code>
+            </div>
+          </div>
+
+          <!-- Row 4: Tooling -->
+          <div class="skill-row">
+            <div class="skill-row-info">
+              <span class="status-dot status-purple" aria-hidden="true"></span>
+              <div>
+                <div class="skill-category">Tooling &amp; Quality</div>
+                <div class="skill-desc">CI/CD automation, testing &amp; version control</div>
+              </div>
+            </div>
+            <div class="skill-tokens">
+              <code class="code-token">Git</code>
+              <code class="code-token">GitHub Actions</code>
+              <code class="code-token">Jest</code>
+              <code class="code-token">Linux / Bash</code>
+              <code class="code-token">Postman</code>
+              <code class="code-token">Figma</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects / Deployments Section -->
+      <section id="projects" class="content-section">
+        <div class="section-title-wrap">
+          <h2 class="section-eyebrow">Projects</h2>
+          <h3 class="section-heading">Featured Deployments</h3>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project Card 1 -->
+          <article class="project-box">
+            <div class="project-box-header">
+              <div class="project-title-area">
+                <span class="status-dot status-green" title="Active"></span>
+                <span class="project-name">cloud-pulse</span>
+              </div>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="View repository">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="project-summary">
+              Real-time monitoring and analytics dashboard with automated anomaly detection, latency graphs, and telemetry ingestion.
+            </p>
+
+            <div class="project-details">
+              <div class="detail-row">
+                <span class="detail-label">Deployment</span>
+                <a href="https://github.com" class="detail-value meta-mono link">cloudpulse.dev</a>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Framework</span>
+                <span class="detail-value meta-mono">Next.js / PostgreSQL</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Status</span>
+                <span class="detail-value meta-mono">200 OK · 14ms p99</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <div class="project-tags">
+                <code class="code-token">TypeScript</code>
+                <code class="code-token">PostgreSQL</code>
+                <code class="code-token">Chart.js</code>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">Source</a>
+                <a href="#projects" class="btn btn-sm btn-primary">Inspect</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-box">
+            <div class="project-box-header">
+              <div class="project-title-area">
+                <span class="status-dot status-green" title="Active"></span>
+                <span class="project-name">task-flow-engine</span>
+              </div>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="View repository">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="project-summary">
+              Collaborative workspace with real-time bidirectional WebSocket syncing, optimistic updates, and role-based permissions.
+            </p>
+
+            <div class="project-details">
+              <div class="detail-row">
+                <span class="detail-label">Deployment</span>
+                <a href="https://github.com" class="detail-value meta-mono link">taskflow.app</a>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Framework</span>
+                <span class="detail-value meta-mono">React / Node.js</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Status</span>
+                <span class="detail-value meta-mono">200 OK · WebSocket Live</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <div class="project-tags">
+                <code class="code-token">React</code>
+                <code class="code-token">WebSockets</code>
+                <code class="code-token">Express</code>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">Source</a>
+                <a href="#projects" class="btn btn-sm btn-primary">Inspect</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-box">
+            <div class="project-box-header">
+              <div class="project-title-area">
+                <span class="status-dot status-green" title="Active"></span>
+                <span class="project-name">shop-matrix-api</span>
+              </div>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="View repository">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="project-summary">
+              High-throughput headless commerce API with distributed inventory locks, Redis catalog cache, and Stripe webhooks.
+            </p>
+
+            <div class="project-details">
+              <div class="detail-row">
+                <span class="detail-label">Deployment</span>
+                <a href="https://github.com" class="detail-value meta-mono link">api.shopmatrix.io</a>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Framework</span>
+                <span class="detail-value meta-mono">Node / Redis / Postgres</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Status</span>
+                <span class="detail-value meta-mono">200 OK · 2.4k req/sec</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <div class="project-tags">
+                <code class="code-token">Node.js</code>
+                <code class="code-token">Redis</code>
+                <code class="code-token">Stripe</code>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">Source</a>
+                <a href="#projects" class="btn btn-sm btn-primary">Inspect</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+          <article class="project-box">
+            <div class="project-box-header">
+              <div class="project-title-area">
+                <span class="status-dot status-green" title="Active"></span>
+                <span class="project-name">dev-scribe</span>
+              </div>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="View repository">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="project-summary">
+              Repository parsing engine extracting abstract syntax trees to auto-generate markdown documentation and dependency graphs.
+            </p>
+
+            <div class="project-details">
+              <div class="detail-row">
+                <span class="detail-label">Deployment</span>
+                <a href="https://github.com" class="detail-value meta-mono link">devscribe.tool</a>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Framework</span>
+                <span class="detail-value meta-mono">Python / FastAPI</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Status</span>
+                <span class="detail-value meta-mono">200 OK · AST Analyzer</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <div class="project-tags">
+                <code class="code-token">Python</code>
+                <code class="code-token">FastAPI</code>
+                <code class="code-token">AST</code>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">Source</a>
+                <a href="#projects" class="btn btn-sm btn-primary">Inspect</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Activity / Experience Changelog -->
+      <section id="activity" class="content-section">
+        <div class="section-title-wrap">
+          <h2 class="section-eyebrow">Changelog</h2>
+          <h3 class="section-heading">Experience &amp; Milestones</h3>
+        </div>
+
+        <div class="changelog-card">
+          <!-- Log 1 -->
+          <div class="log-entry">
+            <div class="log-meta">
+              <span class="log-time meta-mono">2024 — Present</span>
+              <span class="log-tag">Current</span>
+            </div>
+            <div class="log-content">
+              <div class="log-role">Software Engineer</div>
+              <div class="log-org">Product &amp; Systems Engineering</div>
+              <p class="log-text">
+                Leading full-stack feature delivery across user-facing Next.js applications and Node.js microservices. Decreased average page load duration by 35% and improved test coverage to 92%.
+              </p>
+            </div>
+          </div>
+
+          <!-- Log 2 -->
+          <div class="log-entry">
+            <div class="log-meta">
+              <span class="log-time meta-mono">2023 — 2024</span>
+              <span class="log-tag">Completed</span>
+            </div>
+            <div class="log-content">
+              <div class="log-role">Software Engineer Intern</div>
+              <div class="log-org">Digital Solutions Lab</div>
+              <p class="log-text">
+                Developed modular React component systems, implemented authentication routines with JWT/OAuth, and designed schema migrations for PostgreSQL database clusters.
+              </p>
+            </div>
+          </div>
+
+          <!-- Log 3 -->
+          <div class="log-entry">
+            <div class="log-meta">
+              <span class="log-time meta-mono">2020 — 2024</span>
+              <span class="log-tag">Education</span>
+            </div>
+            <div class="log-content">
+              <div class="log-role">B.Tech in Computer Science</div>
+              <div class="log-org">Department of Computer Science</div>
+              <p class="log-text">
+                Core Focus: Algorithms, Data Structures, Operating Systems, Database Management Systems, System Architecture, and Computer Networking.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section">
+        <div class="section-title-wrap">
+          <h2 class="section-eyebrow">Connect</h2>
+          <h3 class="section-heading">Get in Touch</h3>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Direct Details -->
+          <div class="contact-direct">
+            <div class="contact-lead-box">
+              <p class="body-text">
+                Whether you have an engineering role, a technical inquiry, or want to discuss system architecture, send a transmission.
+              </p>
+            </div>
+
+            <div class="contact-points">
+              <div class="contact-item">
+                <span class="meta-label">Email</span>
+                <a href="mailto:vivek.dalmia@example.com" class="contact-link link meta-mono">vivek.dalmia@example.com</a>
+              </div>
+              <div class="contact-item">
+                <span class="meta-label">Phone</span>
+                <a href="tel:+919876543210" class="contact-link link meta-mono">+91 98765 43210</a>
+              </div>
+              <div class="contact-item">
+                <span class="meta-label">Location</span>
+                <span class="contact-val meta-mono">Remote / Worldwide</span>
+              </div>
+              <div class="contact-item">
+                <span class="meta-label">Profiles</span>
+                <div class="profile-links">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link meta-mono">GitHub</a>
+                  <span class="sep">/</span>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link meta-mono">LinkedIn</a>
+                  <span class="sep">/</span>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="link meta-mono">Twitter/X</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clean Achromatic Form -->
+          <div class="contact-form-wrap">
+            <div class="form-container-card">
+              <form action="mailto:vivek.dalmia@example.com" method="post" enctype="text/plain" class="geist-form">
+                <div class="form-grid-2">
+                  <div class="field-wrap">
+                    <label for="form-name" class="field-label">Name</label>
+                    <input type="text" id="form-name" name="name" class="geist-input" placeholder="Alex Chen" required>
+                  </div>
+                  <div class="field-wrap">
+                    <label for="form-email" class="field-label">Email</label>
+                    <input type="email" id="form-email" name="email" class="geist-input" placeholder="alex@company.com" required>
+                  </div>
+                </div>
+
+                <div class="field-wrap">
+                  <label for="form-subject" class="field-label">Subject</label>
+                  <input type="text" id="form-subject" name="subject" class="geist-input" placeholder="Engineering Inquiry" required>
+                </div>
+
+                <div class="field-wrap">
+                  <label for="form-message" class="field-label">Message</label>
+                  <textarea id="form-message" name="message" class="geist-textarea" rows="4" placeholder="Describe the project scope or inquiry..." required></textarea>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Fixed/Pinned Minimal Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg class="footer-logo" width="14" height="14" viewBox="0 0 115 100" fill="currentColor">
+          <path d="M57.5 0L115 100H0L57.5 0Z"/>
+        </svg>
+        <span class="footer-copy">&copy; 2026 Vivek Dalmia. Monochromatic design system.</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="#home" class="footer-link">Overview</a>
+        <a href="#about" class="footer-link">About</a>
+        <a href="#skills" class="footer-link">Capabilities</a>
+        <a href="#projects" class="footer-link">Deployments</a>
+        <a href="#contact" class="footer-link">Contact</a>
+        <a href="#home" class="footer-top-link" aria-label="Back to top">↑ Top</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

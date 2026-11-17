@@ -1,0 +1,1160 @@
+/* ==========================================================================
+   VERCEL DESIGN SYSTEM SPECIFICATION STYLESHEET
+   Achromatic, Engineered Minimalism — Pure CSS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Core Surface Palette (Achromatic 4-Stop Grayscale) */
+  --ds-background-100: #FAFAFA;     /* rgb(250, 250, 250) - Primary Page Canvas */
+  --ds-background-200: #FFFFFF;     /* rgb(255, 255, 255) - Elevated Cards & Surfaces */
+  --ds-background-300: #F2F2F2;     /* rgb(242, 242, 242) - Recessed surfaces & tokens */
+  --ds-background-hover: #EBEBEB;   /* rgb(235, 235, 235) - Hover fill */
+
+  /* Text Color Tokens */
+  --ds-text-primary: #171717;       /* rgb(23, 23, 23) - Headings & Primary Text */
+  --ds-text-secondary: #4D4D4D;     /* rgb(77, 77, 77) - Navigation & Secondary Labels */
+  --ds-text-muted: #8F8F8F;         /* rgb(143, 143, 143) - Captions & Placeholders */
+
+  /* Interactive Accent (Sole non-neutral interactive color) */
+  --ds-accent-blue: #0072F5;        /* rgb(0, 114, 245) - Links & Focus Ring */
+  --ds-focus-blue-alt: #005FCC;     /* rgb(0, 95, 204) - Input Focus Ring */
+
+  /* Status Colors (Exclusively for 10px indicator dots) */
+  --ds-status-green: #398E4A;       /* rgb(57, 142, 74) - Active / Operational */
+  --ds-status-blue: #0062D1;        /* rgb(0, 98, 209) - Info / Frontend */
+  --ds-status-teal: #067A6E;        /* rgb(6, 122, 110) - Infrastructure / Cloud */
+  --ds-status-purple: #7820BC;      /* rgb(120, 32, 188) - Tooling / Quality */
+  --ds-status-orange: #FF990A;      /* rgb(255, 153, 10) - Pending / Build */
+  --ds-status-red: #E5484D;         /* rgb(229, 72, 77) - Error / Alert */
+
+  /* Shadow-as-Border Elevation System (No CSS Borders on containers) */
+  --ds-shadow-border-base: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --ds-shadow-border-hover: 0 0 0 1px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --ds-shadow-header: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+  --ds-shadow-footer: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+  --ds-focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px #0072F5;
+
+  /* Typography Scale */
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'Roboto Mono', Menlo, Consolas, monospace;
+
+  /* Border Radii */
+  --geist-radius: 6px;
+  --geist-card-radius: 12px;
+  --geist-pill: 9999px;
+
+  /* Spacing Scale (4px Base Unit) */
+  --geist-space: 4px;
+  --geist-space-2x: 8px;
+  --geist-space-3x: 12px;
+  --geist-space-4x: 16px;
+  --geist-space-6x: 24px;
+  --geist-space-8x: 32px;
+  --geist-space-10x: 40px;
+  --geist-space-12x: 48px;
+  --geist-space-16x: 64px;
+
+  /* Form & Component Dimensions */
+  --header-height: 64px;
+  --geist-form-height: 40px;
+  --geist-form-small-height: 32px;
+  --geist-page-width: 1200px;
+  --geist-page-margin: 24px;
+
+  /* Easing */
+  --ds-motion-timing-swift: cubic-bezier(.175, .885, .32, 1.1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Core Typography Constraints
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0; /* Strict: borders eliminated in favor of shadow-as-border */
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--ds-background-100);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "liga";
+  background-color: var(--ds-background-100);
+  color: var(--ds-text-primary);
+  font-weight: 400; /* Regular default */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headings — Strict Three-Weight Rule: 400, 500, 600. NEVER 700. */
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 48px; /* 1.0 ratio */
+  letter-spacing: -2.28px; /* Aggressive negative letter-spacing (-4.75%) */
+  color: var(--ds-text-primary);
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px; /* 1.25 ratio */
+  letter-spacing: -1.28px; /* Aggressive negative letter-spacing (-4%) */
+  color: var(--ds-text-primary);
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px; /* 1.43 ratio */
+  letter-spacing: -0.28px;
+  color: var(--ds-text-secondary);
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--ds-text-secondary);
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--ds-text-secondary);
+}
+
+/* Code & Monospace Elements */
+code, pre, .meta-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  /* Pure color changes on hover — no transform, no scale */
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+a.link {
+  color: var(--ds-accent-blue);
+}
+
+a.link:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring) !important;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Status Indicator Dots (Exactly 10px / div.size-2.5)
+   -------------------------------------------------------------------------- */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-green  { background-color: var(--ds-status-green); }
+.status-blue   { background-color: var(--ds-status-blue); }
+.status-teal   { background-color: var(--ds-status-teal); }
+.status-purple { background-color: var(--ds-status-purple); }
+.status-orange { background-color: var(--ds-status-orange); }
+.status-red    { background-color: var(--ds-status-red); }
+
+/* --------------------------------------------------------------------------
+   4. Buttons & Interaction States (Ghost-First Pattern)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--geist-form-height); /* 40px */
+  padding: 0 var(--geist-space-4x); /* 16px */
+  border-radius: var(--geist-radius); /* 6px */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  /* Strictly color and background-color transitions only */
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Primary Button (Signature Solid Black) */
+.btn-primary {
+  background-color: var(--ds-text-primary); /* #171717 */
+  color: var(--ds-background-100);          /* #FAFAFA */
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+/* Secondary Button (Ghost with 1px Shadow Border) */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--ds-text-primary);
+  box-shadow: var(--ds-shadow-border-base);
+}
+
+.btn-secondary:hover {
+  background-color: var(--ds-background-hover); /* #EBEBEB */
+  color: var(--ds-text-primary);
+}
+
+/* Ghost Button (Navigation style) */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--ds-text-secondary);
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  background-color: var(--ds-background-hover);
+  color: var(--ds-text-primary);
+}
+
+/* Small Variant (32px) */
+.btn-sm {
+  height: var(--geist-form-small-height); /* 32px */
+  padding: 0 var(--geist-space-3x);       /* 12px */
+  font-size: 13px;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   5. Header & Navigation Bar
+   -------------------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  height: var(--header-height); /* 64px */
+  background-color: rgba(250, 250, 250, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--ds-shadow-header); /* 0 1px 0 0 rgba(0, 0, 0, 0.1) */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: var(--geist-page-width); /* 1200px */
+  margin: 0 auto;
+  padding: 0 var(--geist-page-margin); /* 24px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--geist-space-2x); /* 8px */
+  color: var(--ds-text-primary);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.brand-logo {
+  display: block;
+  fill: currentColor;
+}
+
+.brand-slash {
+  color: var(--ds-text-muted);
+  font-weight: 400;
+}
+
+.brand-name {
+  color: var(--ds-text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: -0.2px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-8x); /* 32px */
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space); /* 4px */
+}
+
+/* Navigation items follow Vercel ghost button pattern */
+.nav-item {
+  display: inline-flex;
+  align-items: center;
+  height: var(--geist-form-small-height); /* 32px */
+  padding: 0 var(--geist-space-3x);       /* 12px */
+  border-radius: var(--geist-radius);      /* 6px */
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ds-text-secondary);         /* #4D4D4D */
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-item:hover {
+  background-color: var(--ds-background-hover); /* #EBEBEB */
+  color: var(--ds-text-primary);                /* #171717 */
+}
+
+.nav-toggle, .nav-toggle-btn {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Main Content & Page Layout
+   -------------------------------------------------------------------------- */
+.page-main {
+  flex: 1;
+  padding: 0 var(--geist-page-margin); /* 0 24px */
+}
+
+.page-container {
+  width: 100%;
+  max-width: var(--geist-page-width); /* 1200px */
+  margin: 0 auto;
+}
+
+/* Section Spacing: No horizontal lines, purely spacing (32px to 64px) */
+.content-section {
+  padding-top: var(--geist-space-16x); /* 64px */
+}
+
+.section-title-wrap {
+  margin-bottom: var(--geist-space-6x); /* 24px */
+}
+
+.section-eyebrow {
+  margin-bottom: var(--geist-space); /* 4px */
+}
+
+.section-heading {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding-top: var(--geist-space-16x); /* 64px */
+  padding-bottom: var(--geist-space-8x); /* 32px */
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--geist-space-12x); /* 48px */
+  align-items: center;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--geist-space-2x); /* 8px */
+  height: 28px;
+  padding: 0 var(--geist-space-3x); /* 12px */
+  border-radius: var(--geist-pill); /* 9999px */
+  background-color: var(--ds-background-200); /* #FFFFFF */
+  box-shadow: var(--ds-shadow-border-base);
+  margin-bottom: var(--geist-space-6x); /* 24px */
+  width: fit-content;
+}
+
+.status-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ds-text-secondary);
+}
+
+.hero-headline {
+  margin-bottom: var(--geist-space-4x); /* 16px */
+}
+
+.hero-subhead {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--ds-text-secondary);
+  max-width: 540px;
+  margin-bottom: var(--geist-space-8x); /* 32px */
+}
+
+.hero-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--geist-space-3x); /* 12px */
+}
+
+/* Vercel Deployment-style Card */
+.deploy-card {
+  background-color: var(--ds-background-200); /* #FFFFFF */
+  border-radius: var(--geist-card-radius);     /* 12px */
+  box-shadow: var(--ds-shadow-border-base);
+  padding: var(--geist-space-6x);              /* 24px */
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-4x);                  /* 16px */
+  transition: box-shadow 0.15s ease;
+}
+
+.deploy-card:hover {
+  box-shadow: var(--ds-shadow-border-hover);
+}
+
+.deploy-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deploy-title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x); /* 8px */
+}
+
+.deploy-title {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+.deploy-external-link {
+  color: var(--ds-text-muted);
+}
+
+.deploy-external-link:hover {
+  color: var(--ds-text-primary);
+}
+
+.deploy-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--geist-space-4x); /* 16px */
+  padding: var(--geist-space-4x) 0;
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.06), inset 0 -1px 0 0 rgba(0, 0, 0, 0.06);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ds-text-muted);
+}
+
+.meta-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+.deploy-domains {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.domain-row {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x);
+}
+
+.domain-link {
+  color: var(--ds-accent-blue);
+  font-size: 13px;
+}
+
+.domain-link:hover {
+  text-decoration: underline;
+}
+
+.domain-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ds-text-secondary);
+  background-color: var(--ds-background-300);
+  padding: 1px 6px;
+  border-radius: var(--geist-pill);
+}
+
+/* --------------------------------------------------------------------------
+   8. About Section
+   -------------------------------------------------------------------------- */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--geist-space-8x); /* 32px */
+  align-items: start;
+}
+
+.about-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-4x); /* 16px */
+}
+
+.spec-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--geist-space-4x); /* 16px */
+}
+
+.spec-card {
+  background-color: var(--ds-background-200); /* #FFFFFF */
+  border-radius: var(--geist-radius);          /* 6px */
+  box-shadow: var(--ds-shadow-border-base);
+  padding: var(--geist-space-4x);              /* 16px */
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-2x);                  /* 8px */
+  transition: box-shadow 0.15s ease;
+}
+
+.spec-card:hover {
+  box-shadow: var(--ds-shadow-border-hover);
+}
+
+.spec-header {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x); /* 8px */
+}
+
+.spec-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+.spec-body {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--ds-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   9. Capabilities / Skills Section (Structured Table Card)
+   -------------------------------------------------------------------------- */
+.skills-table-card {
+  background-color: var(--ds-background-200);
+  border-radius: var(--geist-card-radius); /* 12px */
+  box-shadow: var(--ds-shadow-border-base);
+  overflow: hidden;
+}
+
+.skill-row {
+  padding: var(--geist-space-6x); /* 24px */
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--geist-space-6x);
+  align-items: center;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.06);
+}
+
+.skill-row:last-child {
+  box-shadow: none;
+}
+
+.skill-row-info {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--geist-space-3x); /* 12px */
+}
+
+.skill-category {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+  margin-bottom: 2px;
+}
+
+.skill-desc {
+  font-size: 12px;
+  color: var(--ds-text-muted);
+  line-height: 16px;
+}
+
+.skill-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--geist-space-2x); /* 8px */
+}
+
+.code-token {
+  display: inline-block;
+  padding: 3px var(--geist-space-2x);
+  background-color: var(--ds-background-300); /* #F2F2F2 */
+  border-radius: var(--geist-radius);          /* 6px */
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   10. Projects Section (Vercel Project Overview Cards)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--geist-space-6x); /* 24px */
+}
+
+.project-box {
+  background-color: var(--ds-background-200); /* #FFFFFF */
+  border-radius: var(--geist-card-radius);     /* 12px */
+  box-shadow: var(--ds-shadow-border-base);
+  padding: var(--geist-space-6x);              /* 24px */
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-4x);                  /* 16px */
+  transition: box-shadow 0.15s ease;
+}
+
+.project-box:hover {
+  box-shadow: var(--ds-shadow-border-hover);
+}
+
+.project-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-title-area {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x); /* 8px */
+}
+
+.project-name {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+.icon-link {
+  color: var(--ds-text-muted);
+}
+
+.icon-link:hover {
+  color: var(--ds-text-primary);
+}
+
+.project-summary {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ds-text-secondary);
+  flex: 1;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space);
+  padding: var(--geist-space-3x) 0;
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.06), inset 0 -1px 0 0 rgba(0, 0, 0, 0.06);
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.detail-label {
+  color: var(--ds-text-muted);
+}
+
+.detail-value {
+  color: var(--ds-text-primary);
+}
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--geist-space-2x);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--geist-space);
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x);
+}
+
+/* --------------------------------------------------------------------------
+   11. Activity / Changelog Section
+   -------------------------------------------------------------------------- */
+.changelog-card {
+  background-color: var(--ds-background-200);
+  border-radius: var(--geist-card-radius); /* 12px */
+  box-shadow: var(--ds-shadow-border-base);
+  overflow: hidden;
+}
+
+.log-entry {
+  padding: var(--geist-space-6x); /* 24px */
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--geist-space-6x);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.06);
+}
+
+.log-entry:last-child {
+  box-shadow: none;
+}
+
+.log-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.log-time {
+  font-size: 12px;
+  color: var(--ds-text-secondary);
+}
+
+.log-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ds-text-muted);
+  background-color: var(--ds-background-300);
+  padding: 1px 6px;
+  border-radius: var(--geist-pill);
+  width: fit-content;
+}
+
+.log-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.log-role {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+.log-org {
+  font-size: 13px;
+  color: var(--ds-text-muted);
+  margin-bottom: var(--geist-space-2x);
+}
+
+.log-text {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ds-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   12. Contact Section & Forms
+   -------------------------------------------------------------------------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--geist-space-8x); /* 32px */
+  align-items: start;
+}
+
+.contact-direct {
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-6x);
+}
+
+.contact-points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-4x);
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-link {
+  font-size: 14px;
+}
+
+.contact-val {
+  font-size: 14px;
+  color: var(--ds-text-primary);
+}
+
+.profile-links {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x);
+  font-size: 13px;
+}
+
+.profile-links .sep {
+  color: var(--ds-text-muted);
+}
+
+/* Form Container Card */
+.form-container-card {
+  background-color: var(--ds-background-200);
+  border-radius: var(--geist-card-radius); /* 12px */
+  box-shadow: var(--ds-shadow-border-base);
+  padding: var(--geist-space-6x);          /* 24px */
+}
+
+.geist-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space-4x); /* 16px */
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--geist-space-4x);
+}
+
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--geist-space); /* 4px */
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ds-text-secondary);
+}
+
+/* Form Inputs Token Compliance */
+.geist-input,
+.geist-textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ds-text-primary);
+  background-color: var(--ds-background-100); /* #FAFAFA */
+  box-shadow: var(--ds-shadow-border-base);    /* 0 0 0 1px rgba(0,0,0,0.08) */
+  border-radius: var(--geist-radius);         /* 6px */
+  padding: 0 var(--geist-space-3x);           /* 12px */
+  transition: box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.geist-input {
+  height: var(--geist-form-height); /* 40px */
+}
+
+.geist-textarea {
+  padding-top: var(--geist-space-2x);
+  padding-bottom: var(--geist-space-2x);
+  line-height: 20px;
+  resize: vertical;
+}
+
+.geist-input::placeholder,
+.geist-textarea::placeholder {
+  color: var(--ds-text-muted); /* #8F8F8F */
+}
+
+/* Vercel Input Focus: outline: rgb(0, 95, 204) auto 1px */
+.geist-input:focus,
+.geist-textarea:focus {
+  outline: 1px solid var(--ds-focus-blue-alt) !important;
+  box-shadow: none !important;
+  background-color: #FFFFFF;
+}
+
+.form-submit-row {
+  margin-top: var(--geist-space-2x);
+}
+
+/* --------------------------------------------------------------------------
+   13. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  margin-top: var(--geist-space-16x); /* 64px */
+  padding: 40px var(--geist-page-margin);
+  box-shadow: var(--ds-shadow-footer); /* 0 -1px 0 0 rgba(0, 0, 0, 0.1) */
+  background-color: var(--ds-background-100);
+}
+
+.footer-inner {
+  width: 100%;
+  max-width: var(--geist-page-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--geist-space-4x);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-2x);
+  color: var(--ds-text-muted);
+  font-size: 13px;
+}
+
+.footer-logo {
+  fill: currentColor;
+}
+
+.footer-copy {
+  color: var(--ds-text-muted);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: var(--geist-space-6x);
+}
+
+.footer-link {
+  font-size: 13px;
+  color: var(--ds-text-secondary);
+}
+
+.footer-link:hover {
+  color: var(--ds-text-primary);
+}
+
+.footer-top-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ds-text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   14. Granular Component Breakpoints (Vercel Multi-Tier Responsive Tuning)
+   -------------------------------------------------------------------------- */
+
+/* Large Laptop / Desktop (< 1200px) */
+@media (max-width: 1200px) {
+  .hero-section {
+    gap: var(--geist-space-8x);
+  }
+}
+
+/* Small Laptop / Tablet Landscape (< 992px) */
+@media (max-width: 992px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: var(--geist-space-8x);
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-row {
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+/* Tablet Portrait (< 768px) */
+@media (max-width: 768px) {
+  /* Mobile Navigation Drawer Activation */
+  .nav-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+
+  .nav-toggle-btn span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--ds-text-primary);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--ds-background-100);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--geist-space-6x);
+    gap: var(--geist-space-6x);
+    box-shadow: var(--ds-shadow-header);
+    display: none;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: var(--geist-space-2x);
+  }
+
+  .nav-item {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .nav-action {
+    width: 100%;
+  }
+
+  .nav-action .btn {
+    width: 100%;
+  }
+
+  .nav-toggle:checked ~ .nav-menu {
+    display: flex;
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-btn span:nth-child(1) {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-btn span:nth-child(2) {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: var(--geist-space-3x);
+  }
+
+  .log-entry {
+    grid-template-columns: 1fr;
+    gap: var(--geist-space-2x);
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile (< 600px) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: -1.7px;
+  }
+
+  h3 {
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: -1px;
+  }
+
+  .spec-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deploy-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-controls .btn {
+    width: 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    flex-wrap: wrap;
+    gap: var(--geist-space-4x);
+  }
+}
